@@ -1,0 +1,166 @@
+#API call for adding ADMIN user
+###
+POST http://127.0.0.1:8000/admin-register/
+Content-Type: application/json
+
+{
+    "username":"adminuser",
+    "email":"admin@gmail.com",
+    "password":"admin123"
+
+}
+
+
+#TURFS
+#API call for listing all turfs
+###
+GET http://127.0.0.1:8000/turfs/
+Accept: application/json
+Authorization: Basic adminuser:admin123
+
+#API call for adding new turf
+###
+POST http://127.0.0.1:8000/turfs/
+Content-Type: application/json
+Authorization: Basic adminuser:admin123
+{
+    "name": "Royal Play Turf",
+    "location": "Mumbai, Maharashtra",
+    "fee": 2000,
+    "phone_no": "9765432109"
+}
+
+#API call for retrieving turf details
+###
+GET http://127.0.0.1:8000/turfs/5/
+Accept: application/json
+Authorization: Basic adminuser:admin123
+
+#API call for updatimg a turf
+###
+PUT http://127.0.0.1:8000/turfs/5/
+Content-Type: application/json
+Authorization: Basic adminuser:admin123
+{
+    "name": "Royal Play Turf",
+    "location": "Mumbai, Maharashtra",
+    "fee": 2000,
+    "phone_no": "9765432109"
+}
+
+#API call for deleting a turf
+###
+DELETE http://127.0.0.1:8000/turfs/6/
+Accept: application/json
+Authorization: Basic adminuser:admin123
+
+
+#RESERVATIONS
+#API call for listing all reservations
+###
+GET http://127.0.0.1:8000/reservations/
+Accept: application/json
+
+#API call for creating new reservation
+###
+POST http://127.0.0.1:8000/reservations/
+Content-Type: application/json
+
+{
+    "team_name": "Thunder",
+    "contact_no": "8899776655",
+    "reservation_date": "2026-10-20",
+    "reservation_time": "20:00:00",
+    "turf": 5,
+    "duration": "02:00:00"
+}
+
+#API call for retrieving appointment details
+###
+GET http://127.0.0.1:8000/reservations/2/
+Accept: application/json
+
+#API call for updating a reservation
+###
+PUT http://127.0.0.1:8000/reservations/7/
+Content-Type: application/json
+
+{
+    "team_name": "Thunder",
+    "contact_no": "8899776655",
+    "reservation_date": "2026-10-20",
+    "reservation_time": "19:00:00",
+    "turf": 5,
+    "duration": "02:00:00"
+}
+
+#API call for deleting a reservation
+###
+DELETE http://127.0.0.1:8000/reservations/3/
+Accept: application/json
+
+#API call for creating a normal user
+###
+POST http://127.0.0.1:8000/v2/bookings/signup/
+Content-Type: application/json
+
+{
+    "username":"user1",
+    "email":"user1@gmail.com",
+    "password":"user123"
+}
+
+
+#RESERVATIONS V2
+#API call for listing all reservations
+###
+GET http://127.0.0.1:8000/v2/bookings/reservations/
+Accept: application/json
+Authorization: Basic user1:user123
+
+#API call for creating a reservation
+###
+POST http://127.0.0.1:8000/v2/bookings/reservations/
+Content-Type: application/json
+Authorization: Basic user1:user123
+
+{
+    "team_name": "royal warriors",
+    "contact_no": "9238776655",
+    "reservation_date": "2026-10-22",
+    "reservation_time": "21:30:00",
+    "turf": 1,
+    "duration": "01:00:00"
+}
+
+
+#API call for retrieving reservation details
+###
+GET http://127.0.0.1:8000/v2/bookings/reservations/2/
+Accept: application/json
+Authorization: Basic user1:user123
+
+#API call for updating reservation
+###
+PUT http://127.0.0.1:8000/v2/bookings/reservations/2/
+Content-Type: application/json
+Authorization: Basic user1:user123
+
+{
+  
+  "team_name": "Thunder",
+  "contact_no": "8899776655",
+  "reservation_date": "2026-10-20",
+  "reservation_time": "10:00:00",
+  "duration": "02:00:00",
+  "end_time": "12:00:00",
+  "turf": 2
+}
+
+
+
+#API call for deleting a reservation
+###
+DELETE http://127.0.0.1:8000/v2/bookings/reservations/1/
+Accept: application/json
+Authorization: Basic user1:user123
